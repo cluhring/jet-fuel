@@ -1,0 +1,8 @@
+<div class='container url-home' id="url1">
+  <%= form_tag("/welcome", method: "create") do %>
+  <%= label_tag("What is the name of the url you'd like shortened today?") %><br>
+  <%= text_field_tag "url", "URL",
+  :onclick => 'if($(this).val()=="URL"){$(this).val("");};' %><br>
+  <button id="Shorten that shit" type="submit" class="btn btn-default">Shorten that shit!</button>
+  <% end %>
+</div>
