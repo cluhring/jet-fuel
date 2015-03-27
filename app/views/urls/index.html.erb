@@ -1,0 +1,12 @@
+This is the URL Index
+
+<div class="all-links">
+	<ul>
+		<% @urls.each do |url|%>
+		<li>
+			Original Url: <%= truncate(url.original_url, length: 40, omission: '... (et cetera)', escape: false) %>
+			<%= link_to  url.display_tiny_url, url_path(url.id) %>
+		</li>
+		<% end %>
+	</ul>
+</div>
