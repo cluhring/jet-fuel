@@ -11,8 +11,4 @@ class Url < ActiveRecord::Base
     ENV["BASE_URL"] + "#{self.tiny_url}"
   end
 
-  # def display_tiny_url
-  #   "http://" + "#{self.tiny_url}"
-  # end
-
 end
