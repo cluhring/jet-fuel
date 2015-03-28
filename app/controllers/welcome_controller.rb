@@ -5,7 +5,7 @@ class WelcomeController < ApplicationController
   end
 
   def create
-    @url = Url.new(original_url: params[:url])
+    @url = Url.new(original_url: params[:url], clicks: 0)
     if @url.save
       @url.generate_tiny_url
       redirect_to :action => 'index', :params => { :tiny_url => @url.display_tiny_url, :original_url => @url.original_url }

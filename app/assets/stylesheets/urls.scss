@@ -31,3 +31,36 @@
   text-align: center;
   top: 100px;
 }
+
+.all-links {
+  position: center;
+}
+
+.url-header {
+  text-align: center;
+}
+
+table.center {
+  top: 50px;
+  width: 90%;
+  margin-left:auto;
+  margin-right:auto;
+   th, td {
+     text-align: center;
+     border: 1px solid black;
+     border-collapse: collapse;
+   }
+ }
+
+table#t01 tr:nth-child(even) {
+  background-color: #BA55D3;
+}
+
+table#t01 tr:nth-child(odd) {
+  background-color: #BDB76B;
+}
+
+table#t01 th	{
+  background-color: black;
+  color: white;
+}

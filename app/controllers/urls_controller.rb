@@ -6,6 +6,8 @@ class UrlsController < ApplicationController
 
   def show
     @url = Url.find_by(tiny_url: (params[:tiny_url]))
+    @url.clicks += 1
+    @url.save
     redirect_to @url.original_url
   end
 

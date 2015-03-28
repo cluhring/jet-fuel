@@ -1,12 +1,20 @@
-This is the URL Index
+<div class="url-header">
+	<h1>URL Index</h1>
+</div>
 
 <div class="all-links">
-	<ul>
+	<table class="center" id="t01">
+	  <tr>
+	    <th>Original URL</th>
+	    <th>Mini URL</th>
+	    <th>Views</th>
+	  </tr>
+	  <tr>
 		<% @urls.each do |url|%>
-		<li>
-			Original Url: <%= truncate(url.original_url, length: 40, omission: '... (et cetera)', escape: false) %>
-			<%= link_to  url.display_tiny_url, url_path(url.id) %>
-		</li>
+			<td><%= truncate(url.original_url, length: 50, omission: '... (et cetera)', escape: false) %></td>
+	    <td><%= link_to url.display_tiny_url, url.original_url %></td>
+	    <td><%= url.clicks %></td>
+	  </tr>
 		<% end %>
-	</ul>
+	</table>
 </div>
