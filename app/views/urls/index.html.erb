@@ -1,4 +1,5 @@
-<div class="url-header">
+<a class="Home" href="/">Home</a>
+	<div class="url-header">
 	<h1>URL Index</h1>
 </div>
 
@@ -8,12 +9,14 @@
 	    <th>Original URL</th>
 	    <th>Mini URL</th>
 	    <th>Views</th>
+	    <th>Day/Time Created</th>
 	  </tr>
 	  <tr>
 		<% @urls.each do |url|%>
 			<td><%= truncate(url.original_url, length: 50, omission: '... (et cetera)', escape: false) %></td>
-	    <td><%= link_to url.display_tiny_url, url.original_url %></td>
+	    <td><%= link_to url.display_tiny_url, url_path(url.id) %></td>
 	    <td><%= url.clicks %></td>
+	    <td><%= url.time %></td>
 	  </tr>
 		<% end %>
 	</table>
