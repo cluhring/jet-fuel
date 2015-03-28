@@ -1,18 +1,24 @@
 
-<h1>
-  <div class='container url-home' id="url1">
-  <%= form_tag("/welcome", method: "create") do %>
-  <%= label_tag("What is the name of the url you'd like shortened today?") %><br><br>
-  <%= text_field_tag "url", "URL must include http: or https:",
-  :onclick => 'if($(this).val()=="URL must include http: or https:"){$(this).val("");};' %><br><br>
-  <button id="Shorten that shit" type="submit" class="btn btn-lg btn-primary">Shorten that shit!</button><br><br>
+<div class='container url-home' id="url1">
+  <h1>
+    <%= form_tag("/welcome", method: "create") do %>
+    <%= label_tag("Please enter the url, which you'd like shortened below:") %><br>
+  </h1>
+  <h2>
+    <%= text_field_tag "url", "URL must include http: or https:",
+    :onclick => 'if($(this).val()=="URL must include http: or https:"){$(this).val("");};' %><br><br>
+  </h2>
+  <button id="Shorten" type="submit" class="btn btn-lg btn-primary">Shorten that shit!</button><br><br>
   <% end %>
 </div>
 <row>
   <div class="mini col-md-4">
     <%= image_tag "mini.jpg" %>
   </div>
+  <h1>
   <div class="tiny_url col-md-8">
-    I shall call it: <br><a href="<%=@original_url%>"><br><%= @tiny_url %></a>
+    I shall call it: <br><a href="<%=@original_url%>"><br><%= @tiny_url %></a><br><br><br>
+    <a href= "/urls"><button class="btn btn-lg btn-primary">Dr Evil's Lair</button></a>
   </div>
-</h1>
+  </h1>
+</row>
