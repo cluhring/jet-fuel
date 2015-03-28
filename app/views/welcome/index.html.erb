@@ -4,7 +4,7 @@
   <%= form_tag("/welcome", method: "create") do %>
   <%= label_tag("What is the name of the url you'd like shortened today?") %><br><br>
   <%= text_field_tag "url", "URL must include http: or https:",
-  :onclick => 'if($(this).val()=="URL must include http/https://"){$(this).val("");};' %><br><br>
+  :onclick => 'if($(this).val()=="URL must include http: or https:"){$(this).val("");};' %><br><br>
   <button id="Shorten that shit" type="submit" class="btn btn-lg btn-primary">Shorten that shit!</button><br><br>
   <% end %>
 </div>
