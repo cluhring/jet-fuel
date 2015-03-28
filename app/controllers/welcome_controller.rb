@@ -2,7 +2,6 @@ class WelcomeController < ApplicationController
   def index
     @tiny_url = params[:tiny_url]
     @original_url = params[:original_url]
-    require 'pry' ; binding.pry
   end
 
   def create

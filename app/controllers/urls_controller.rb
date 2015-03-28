@@ -5,7 +5,7 @@ class UrlsController < ApplicationController
   end
 
   def show
-    @url = Url.find(params[:id])
+    @url = Url.find_by(tiny_url: (params[:tiny_url]))
     redirect_to @url.original_url
   end
 
