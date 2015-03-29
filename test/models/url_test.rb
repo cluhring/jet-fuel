@@ -17,4 +17,10 @@ class UrlTest < ActiveSupport::TestCase
     assert invalid_url.invalid?
   end
 
+  test "it generates a short url" do
+    url = Url.create(original_url: "https://github.com/")
+    url.generate_tiny_url
+    assert url.tiny_url?
+  end
+
 end
