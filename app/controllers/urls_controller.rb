@@ -1,7 +1,10 @@
 class UrlsController < ApplicationController
 
   def index
-    @urls = Url.all
+    @urls = Url.where(nil)
+    sorting_params(params).each do |key, value|
+      @urls = @urls.public_send(key)
+    end
   end
 
   def show
@@ -13,6 +16,10 @@ class UrlsController < ApplicationController
     @url.clicks += 1
     @url.save
     redirect_to @url.original_url
+  end
+
+  def sorting_params(params)
+    params.slice(:popularity_sort, :date_sort)
   end
 
 end

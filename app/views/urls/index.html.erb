@@ -8,8 +8,8 @@
 	  <tr>
 	    <th>Original URL</th>
 	    <th>Mini URL</th>
-	    <th>Views</th>
-	    <th>Day/Time Created</th>
+			<th><%= link_to "Views", urls_path(popularity_sort: "hi") %></th>
+	    <th><%= link_to "Day/Time Created", urls_path(date_sort: "ho") %></th>
 	  </tr>
 	  <tr>
 		<% @urls.each do |url|%>

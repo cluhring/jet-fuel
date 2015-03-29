@@ -18,4 +18,12 @@ class Url < ActiveRecord::Base
     time = self.created_at.strftime("%b %e, %l:%M %p")
   end
 
+  def self.popularity_sort
+    all.order(clicks: :desc)
+  end
+
+  def self.date_sort
+    all.order(created_at: :desc)
+  end
+
 end
