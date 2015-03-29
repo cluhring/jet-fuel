@@ -30,10 +30,32 @@ class UrlIntegrationTest < ActionDispatch::IntegrationTest
     assert page.has_content?('https://github.com/1234')
   end
 
-  test "As a guest, on the root I expect to see URLS sorted by popularity" do
-    url1 = Url.create(full_url: "https://www.google.com/", visit_count: 4)
+  test "As an anonymous user, I can visit url index and sort URLS by popularity" do
+    url1 = Url.create(original_url: "https://www.github.com/1234", clicks: 3)
+    url2 = Url.create(original_url: "https://www.github.com/1235", clicks: 9)
+    url3 = Url.create(original_url: "https://www.github.com/1236", clicks: 6)
     visit "/urls"
-    assert page.has_link?(url1.short_url, :match => :first)
+    click_link("Views")
+    find("table#t01 tr:nth-child(1)") do
+      assert page.has_content?('https://www.github.com/1235')
+    end
+    find("table#t01 tr:nth-child(2)") do
+      assert page.has_content?("https://www.github.com/1236")
+    end
+  end
+
+  test "As an anonymous user, I can visit url index and sort URLS by date" do
+    url1 = Url.create(original_url: "https://www.github.com/1234", created_at: "Sun, 29 Mar 2015 15:50:06 MDT -06:00")
+    url2 = Url.create(original_url: "https://www.github.com/1235", created_at: "Sun, 29 Mar 2015 13:50:06 MDT -06:00")
+    url3 = Url.create(original_url: "https://www.github.com/1236", created_at: "Sun, 29 Mar 2015 14:50:06 MDT -06:00")
+    visit "/urls"
+    click_link("Day/Time Created")
+    find("table#t01 tr:nth-child(1)") do
+      assert page.has_content?('https://www.github.com/1234')
+    end
+    find("table#t01 tr:nth-child(2)") do
+      assert page.has_content?("https://www.github.com/1236")
+    end
   end
 
 end
