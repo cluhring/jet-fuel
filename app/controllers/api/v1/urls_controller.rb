@@ -5,4 +5,9 @@ class Api::V1::UrlsController < ApplicationController
     @urls = Url.all
     respond_with @urls
   end
+
+  def show
+    @url = Url.find(params[:id])
+    respond_with @url
+  end
 end
