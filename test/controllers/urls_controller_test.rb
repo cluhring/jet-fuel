@@ -13,6 +13,7 @@ class UrlsControllerTest < ActionController::TestCase
     url3 = Url.create(original_url: "https://www.github.com/1236", clicks: 0)
     get :show, id: url3.id
     assert_response 302
+    assert_redirected_to url3.original_url
   end
 
   test '#url_show2' do
@@ -20,5 +21,6 @@ class UrlsControllerTest < ActionController::TestCase
     url4 = Url.create(original_url: "https://www.github.com/1286", tiny_url: '2', clicks: 1)
     get :show, tiny_url: url4.tiny_url
     assert_response 302
+    assert_redirected_to url4.original_url
   end
 end

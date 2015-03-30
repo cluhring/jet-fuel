@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class WelcomeControllerTest < ActionController::TestCase
-  # include Capybara::DSL
+  include Capybara::DSL
 
   test '#welcome_index' do
     get :index
@@ -13,5 +13,4 @@ class WelcomeControllerTest < ActionController::TestCase
     assert_generates "/welcome", controller: "welcome", action: 'index'
     assert_redirected_to welcome_index_path
   end
-
 end
