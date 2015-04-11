@@ -2,13 +2,13 @@
 <div class='container url-home' id="url1">
   <h1>
     <%= form_tag("/welcome", method: "create") do %>
-    <%= label_tag("Please enter the url, which you'd like shortened below:") %><br>
+    <%= label_tag("Which url do you want shortened?") %><br>
   </h1>
   <h2>
     <%= text_field_tag "url", "URL must include http: or https:",
     :onclick => 'if($(this).val()=="URL must include http: or https:"){$(this).val("");};' %><br><br>
   </h2>
-  <button id="Shorten" type="submit" class="btn btn-lg btn-primary">Shorten that shit!</button><br><br>
+  <button id="Shorten" type="submit" class="btn btn-lg btn-primary">Shorten my url!</button><br><br>
   <% end %>
 </div>
 <row>
@@ -20,7 +20,7 @@
     I shall call it: <br>
     <div class="yo"> <a href="<%=@original_url%>"><br><%= @tiny_url %></a><br><br><br>
     </div>
-    <a href= "/urls"><button class="btn btn-lg btn-primary">Dr. Evil's Lair</button></a>
+    <a href= "/urls"><button class="btn btn-lg btn-primary">Please login to see all your Mini-Urls</button></a>
   </div>
   </h1>
 </row>
