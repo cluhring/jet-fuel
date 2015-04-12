@@ -13,4 +13,5 @@ class WelcomeControllerTest < ActionController::TestCase
     assert_generates "/welcome", controller: "welcome", action: 'index'
     assert_redirected_to welcome_index_path
   end
+
 end

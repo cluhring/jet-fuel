@@ -1,6 +1,8 @@
 class UrlsController < ApplicationController
+  before_action :authenticate!, :except => [:show]
 
   def index
+    # @user = current_user
     @urls = Url.where(nil)
     sorting_params(params).each do |key, value|
       @urls = @urls.public_send(key)
@@ -9,7 +11,7 @@ class UrlsController < ApplicationController
 
   def show
     # if params[:tiny_url]
-      @url = Url.find_by(tiny_url: (params[:tiny_url]))
+    @url = Url.find_by(tiny_url: (params[:tiny_url]))
     # else
     #   @url = Url.find(params[:id])
     # end

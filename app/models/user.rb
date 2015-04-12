@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
 
+  has_many :urls
+
   validates :email, presence: true, format: { with: /\A.+@.+$\Z/ }, uniqueness: true
   validates :first_name, :last_name, :password, :phone, presence: true
   validates :country_code, presence: true

@@ -13,7 +13,7 @@ class UsersController < ApplicationController
         country_code: @user.country_code
       )
       @user.update(authy_id: authy.id)
-      redirect_to account_path
+      redirect_to root_path(current_user)
     else
       render :new
     end
@@ -31,8 +31,3 @@ class UsersController < ApplicationController
     )
   end
 end
-
-# POST https://api.authy.com/protected/{FORMAT}/users/new?api_key={KEY}
-# 3jHqU6es36Vy2q0Etei8st8Jb3JBlOTc
-# <link href="https://www.authy.com/form.authy.min.css" media="screen" rel="stylesheet" type="text/css">
-# <script src="https://www.authy.com/form.authy.min.js" type="text/javascript"></script>

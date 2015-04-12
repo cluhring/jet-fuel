@@ -1,16 +1,26 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
-  include Capybara::DSL
 
-  test '#welcome index' do
-    get :index
+  def setup
+    @user = User.new(first_name: "Lauren",
+                     last_name: "Luhring",
+                     email: "lespath@gmail.com",
+                     phone: "2606025739",
+                     country_code: "1",
+                     password: "valid",
+                     id: 1)
+  end
+
+  def teardown
+    @user.destroy
+  end
+
+  test "should get new" do
+    get :new
     assert_response :success
+    assert assigns(:user)
+    assert assigns(:user).new_record?
   end
 
-  test '#welcome create' do
-    post :create, url: {original_url: "https://www.github.com/1234"}
-    assert_generates "/welcome", controller: "welcome", action: 'index'
-    assert_redirected_to welcome_index_path
-  end
 end

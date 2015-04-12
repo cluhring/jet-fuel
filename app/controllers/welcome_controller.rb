@@ -10,7 +10,7 @@ class WelcomeController < ApplicationController
       @url.generate_tiny_url
       redirect_to :action => 'index', :params => { :tiny_url => @url.display_tiny_url, :original_url => @url.original_url }
     else
-      redirect_to welcome_index_path, alert: "You absolute pancake, try entering valid URL next time"
+      redirect_to welcome_index_path, alert: "Please enter a valid URL"
     end
   end
 

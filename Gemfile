@@ -16,6 +16,15 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 # Respond with
 gem 'responders', '~> 2.0'
+gem 'authy'
+
+group :production do
+#This gem adds two other gems rails_serve_static_assets and rails_stdout_logging.
+#These gems are required to run your Rails app with both logging aggregation and
+#static assets serving in production. All you need to do to get the functionality
+#of both gems is to add the rails_12factor gem to your project.
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   gem 'byebug'
@@ -27,4 +36,6 @@ group :development, :test do
   gem 'capybara'
   #sao
   gem 'launchy'
+  # gem 'vcr'
+  # gem 'webmock'
 end
