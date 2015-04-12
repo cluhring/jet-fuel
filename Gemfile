@@ -17,6 +17,8 @@ gem 'figaro'
 # Respond with
 gem 'responders', '~> 2.0'
 gem 'authy'
+# Use Unicorn as the app server
+gem 'unicorn'
 
 group :production do
 #This gem adds two other gems rails_serve_static_assets and rails_stdout_logging.
