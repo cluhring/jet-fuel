@@ -20,13 +20,13 @@ gem 'authy'
 # Use Unicorn as the app server
 gem 'unicorn'
 
-group :production do
-#This gem adds two other gems rails_serve_static_assets and rails_stdout_logging.
-#These gems are required to run your Rails app with both logging aggregation and
-#static assets serving in production. All you need to do to get the functionality
-#of both gems is to add the rails_12factor gem to your project.
-  gem 'rails_12factor'
-end
+# group :production do
+# #This gem adds two other gems rails_serve_static_assets and rails_stdout_logging.
+# #These gems are required to run your Rails app with both logging aggregation and
+# #static assets serving in production. All you need to do to get the functionality
+# #of both gems is to add the rails_12factor gem to your project.
+#   gem 'rails_12factor'
+# end
 
 group :development, :test do
   gem 'byebug'
